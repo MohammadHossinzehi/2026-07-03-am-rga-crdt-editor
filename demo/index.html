@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>RGA CRDT demo - 3 clients, unreliable network</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; background:#0d1117; color:#c9d1d9; }
+  h1 { font-size: 1.4rem; }
+  p.sub { color:#8b949e; margin-top:-0.5rem; }
+  .clients { display:flex; gap:1rem; flex-wrap:wrap; }
+  .client { flex:1; min-width:260px; background:#161b22; border:1px solid #30363d; border-radius:8px; padding:1rem; }
+  .client h2 { margin:0 0 0.5rem; font-size:1rem; }
+  .doc { min-height:2.4rem; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:0.6rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:1.05rem; word-break:break-all; }
+  .btns { margin-top:0.6rem; display:flex; gap:0.4rem; flex-wrap:wrap; }
+  button { background:#21262d; color:#c9d1d9; border:1px solid #30363d; border-radius:6px; padding:0.35rem 0.6rem; cursor:pointer; font-size:0.85rem; }
+  button:hover { background:#30363d; }
+  .controls { margin:1rem 0; display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; }
+  #status { margin-top:1rem; font-family: ui-monospace, monospace; font-size:0.85rem; color:#8b949e; }
+  .ok { color:#3fb950; font-weight:bold; }
+  .pending { color:#d29922; font-weight:bold; }
+  #log { margin-top:1rem; height:160px; overflow-y:auto; background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:0.6rem; font-family: ui-monospace, monospace; font-size:0.78rem; color:#8b949e; }
+  label { font-size:0.85rem; }
+</style>
+</head>
+<body>
+<h1>RGA CRDT demo</h1>
+<p class="sub">Three independent replicas (Alice, Bob, Carol), each editing the same document, connected by a simulated network that reorders and delays every message. Watch them converge anyway.</p>
+
+<div class="controls">
+  <label>Network delay: <input id="delay" type="range" min="0" max="2500" value="800" /> <span id="delayLabel">800ms</span></label>
+  <button id="chaosBtn">Run chaos burst (concurrent edits on all 3)</button>
+  <button id="resetBtn">Reset</button>
+</div>
+
+<div class="clients" id="clients"></div>
+
+<div id="status">Waiting for edits...</div>
+<div id="log"></div>
+
+<script src="../src/rga.js"></script>
+<script src="demo.js"></script>
+</body>
+</html>
