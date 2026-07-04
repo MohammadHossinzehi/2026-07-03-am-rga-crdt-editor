@@ -1,0 +1,12 @@
+{
+  "name": "rga-crdt-editor",
+  "version": "1.0.0",
+  "description": "A Replicated Growable Array (RGA) CRDT for real time collaborative plain text editing, with causal buffering and a 3-client browser demo.",
+  "main": "src/rga.js",
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "license": "MIT",
+  "author": "MohammadHossinzehi",
+  "keywords": ["crdt", "rga", "collaborative-editing", "distributed-systems", "algorithms"]
+}
